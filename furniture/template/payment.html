@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pay Now</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .border-box {
+            border: 2px solid green;
+            border-radius: 20px;
+            padding: 30px;
+            background-color: white;
+            text-align: center;
+        }
+
+        h2, h3 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            background-color: green;
+            color: white;
+            border-radius: 20px;
+            width: 156px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="border-box">
+            <h2>Payment Method</h2>
+            <h3>Amount : ₹{{ total }}</h3>
+
+            <form action="../payment_success" method="POST">
+                {% csrf_token %}
+                <script
+                    src="https://checkout.razorpay.com/v1/checkout.js"
+                    data-key="rzp_test_SROSnyInFv81S4"
+                    data-amount={{price}}
+                    data-currency="INR"
+                    data-order_id="{{payment.id}}"
+                    data-buttontext="Pay with Razorpay"
+                    data-name="django payment"
+                    data-description="this is test payment"
+                    data-image="https://example.com/your_logo.jpg"
+                    data-prefill.name="Gaurav Kumar"
+                    data-prefill.email="django@test.com"
+                    data-theme.color="#4CAF50"
+                ></script>
+                <input type="hidden" custom="Hidden Element" name="hidden">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

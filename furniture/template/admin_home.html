@@ -1,0 +1,344 @@
+
+<!doctype html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <link rel="shortcut icon" href="favicon.png">
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap4" />
+
+		<!-- Bootstrap CSS -->
+		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+		<link href="{% static 'css/tiny-slider.css' %}" rel="stylesheet">
+		<link href="{% static 'css/style.css' %}" rel="stylesheet">
+		<title>GadgetHive</title>
+	</head>
+
+	<body>
+
+		<!-- Start Header/Navigation -->
+		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+
+			<div class="container">
+				<h1><a class="navbar-brand">GadgetHive<span>.</span></a> </h1>
+
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarsFurni">
+					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+						<li class="nav-item active">
+							<a class="nav-link" href="">Home</a>
+						</li>
+
+						<li><a class="nav-link" href="../view_user">Users</a></li>
+						<li><a class="nav-link" href="../view_order">View Orders</a></li>
+
+						<li><a class="nav-link" href="../prod_approval">Product Approval</a></li>
+						<li><a class="nav-link" href="../reorder">Reorder</a></li>
+					</ul>
+
+
+  <!-- Right Side Icons -->
+				  <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+					<li class="nav-item">
+					  <a class="nav-link" href="../logout" title="Logout">
+						<i class="fa fa-sign-out" style="font-size:24px; color:white;"></i>
+					  </a>
+					</li>
+
+				  </ul>
+				</div>
+			</div>
+
+		</nav>
+		<!-- End Header/Navigation -->
+
+		<!-- Start Hero Section -->
+			<div class="hero">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-5">
+							<div class="intro-excerpt">
+								<h1>Used Laptops   <span clsas="d-block"><br>E-Store</br></span></h1>
+								<p class="mb-4">GadgetHive – Your go-to hub for buying, selling, and trading computers and gadgets. Connecting tech lovers with the gear they need, fast and easy!</p>
+<!--								<p><a href="login" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>-->
+							</div>
+						</div>
+						<div class="col-lg-7">
+							<div class="hero-img-wrap">
+								<img src="{% static 'images/pc.png' %}" class="img-fluid">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- End Hero Section -->
+
+		<!-- Start Product Section -->
+		<div class="product-section">
+			<div class="container">
+				<div class="row">
+
+					<!-- Start Column 1 -->
+					<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
+						<h2 class="mb-4 section-title">Crafted with excellent material.</h2>
+						<p class="mb-4"> Good quality product at lowest price</p>
+						<p><a href="login" class="btn">Explore</a></p>
+					</div>
+					<!-- End Column 1 -->
+
+<!--					&lt;!&ndash; Start Column 2 &ndash;&gt;-->
+<!--					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">-->
+<!--						<a class="product-item" href="login">-->
+<!--							<img src="{% static 'images/hdd.png' %}" class="img-fluid product-thumbnail">-->
+<!--							<h3 class="product-title">Samsung HDD</h3>-->
+<!--							<strong class="product-price">1550.00</strong>-->
+
+<!--							<span class="icon-cross">-->
+<!--								<img src="{% static 'images/cross.svg' %}" class="img-fluid">-->
+<!--							</span>-->
+<!--						</a>-->
+<!--					</div>-->
+<!--					&lt;!&ndash; End Column 2 &ndash;&gt;-->
+
+<!--					&lt;!&ndash; Start Column 3 &ndash;&gt;-->
+<!--					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">-->
+<!--						<a class="product-item" href="cart.html">-->
+<!--							<img src="{% static 'images/ram.png' %}" class="img-fluid product-thumbnail">-->
+<!--							<h3 class="product-title">Ram 3.0</h3>-->
+<!--							<strong class="product-price">800.00</strong>-->
+
+<!--							<span class="icon-cross">-->
+<!--								<img src="{% static 'images/cross.svg' %}" class="img-fluid">-->
+<!--							</span>-->
+<!--						</a>-->
+<!--					</div>-->
+<!--					&lt;!&ndash; End Column 3 &ndash;&gt;-->
+
+<!--					&lt;!&ndash; Start Column 4 &ndash;&gt;-->
+<!--					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">-->
+<!--						<a class="product-item" href="cart.html">-->
+<!--							<img src="{% static 'images/ssd.png' %}" class="img-fluid product-thumbnail">-->
+<!--							<h3 class="product-title">2 TB Storage</h3>-->
+<!--							<strong class="product-price">3000.00</strong>-->
+
+<!--							<span class="icon-cross">-->
+<!--								<img src="{% static 'images/cross.svg' %}" class="img-fluid">-->
+<!--							</span>-->
+<!--						</a>-->
+<!--					</div>-->
+<!--					&lt;!&ndash; End Column 4 &ndash;&gt;-->
+
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--		&lt;!&ndash; End Product Section &ndash;&gt;-->
+
+		<!-- Start Why Choose Us Section -->
+		<div class="why-choose-section">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-lg-6">
+						<h2 class="section-title">Why Choose Us</h2>
+						<p>At GadgetHive, we make buying, selling, and trading computers and gadgets simple, fast, and reliable. With a wide selection of tech products, competitive prices, and a trusted platform for safe transactions, we connect tech enthusiasts with the gear they need—all in one convenient hub.</p>
+
+						<div class="row my-5">
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="{% static 'images/truck.svg' %}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Fast &amp; Free Shipping</h3>
+									<p>Enjoy speedy delivery at no extra cost! Get your computers, gadgets, and accessories delivered to your doorstep quickly and hassle-free.</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="{% static 'images/bag.svg' %}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Easy to Shop</h3>
+									<p>Browse, compare, and buy your favorite computers and gadgets effortlessly with our user-friendly platform. Shopping tech has never been this simple!</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="{% static 'images/support.svg' %}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>24/7 Support</h3>
+									<p>Our dedicated team is here around the clock to help you with any questions or issues. Get assistance whenever you need, day or night!</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="{% static 'images/return.svg' %}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Hassle Free Returns</h3>
+									<p>Return your products easily and without stress. We make sure the process is simple, quick, and convenient for you.</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="col-lg-5">
+						<div class="img-wrap">
+							<img src="{% static 'images/pc_setup.jpg' %}" alt="Image" class="img-fluid">
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- End Why Choose Us Section -->
+
+<!--		&lt;!&ndash; Start We Help Section &ndash;&gt;-->
+<!--		<div class="we-help-section">-->
+<!--			<div class="container">-->
+<!--				<div class="row justify-content-between">-->
+<!--					<div class="col-lg-7 mb-5 mb-lg-0">-->
+<!--						<div class="imgs-grid">-->
+<!--							<div class="grid grid-1"><img src="{% static 'images/pc1.jpg' %}" ></div>-->
+<!--							<div class="grid grid-2"><img src="{% static 'images/pc2.jpg' %}" ></div>-->
+<!--							<div class="grid grid-3"><img src="{% static 'images/pc3.jpg' %}" ></div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--					<div class="col-lg-5 ps-lg-5">-->
+<!--						<h2 class="section-title mb-4">We Help You Create Your Perfect Tech Setup</h2>-->
+<!--						<p>From powerful computers to essential accessories, GadgetHive brings you everything you need to build your ideal workspace or gaming zone. Discover top-quality products and expert guidance to create a setup that’s perfectly suited to your needs.</p>-->
+
+<!--						<ul class="list-unstyled custom-list my-4">-->
+<!--							<li>Custom Recommendations</li>-->
+<!--							<li>Top-Quality Products</li>-->
+<!--							<li>Seamless Compatibility</li>-->
+<!--							<li>Setup Guidance</li>-->
+<!--						</ul>-->
+<!--						<p><a herf="login" class="btn">Explore</a></p>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+
+
+<!--		&lt;!&ndash; Start Footer Section &ndash;&gt;-->
+<!--		<footer class="footer-section">-->
+<!--			<div class="container relative">-->
+
+<!--				<div class="sofa-img">-->
+<!--					<img src="{% static 'images/pc.png' %}" alt="Image" class="img-fluid">-->
+<!--				</div>-->
+
+<!--				<div class="row">-->
+<!--					<div class="col-lg-8">-->
+<!--						<div class="subscription-form">-->
+<!--							<h3 class="d-flex align-items-center"><span class="me-1"><img src="{% static 'images/envelope-outline.svg' %}" alt="Image" class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>-->
+
+<!--							<form action="#" class="row g-3">-->
+<!--								<div class="col-auto">-->
+<!--									<input type="text" class="form-control" placeholder="Enter your name">-->
+<!--								</div>-->
+<!--								<div class="col-auto">-->
+<!--									<input type="email" class="form-control" placeholder="Enter your email">-->
+<!--								</div>-->
+<!--								<div class="col-auto">-->
+<!--									<button class="btn btn-primary">-->
+<!--										<span class="fa fa-paper-plane"></span>-->
+<!--									</button>-->
+<!--								</div>-->
+<!--							</form>-->
+
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+
+<!--				<div class="row g-5 mb-5">-->
+<!--					<div class="col-lg-4">-->
+<!--						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">GadgetHive<span>.</span></a></div>-->
+<!--						<p class="mb-4">GadgetHive – Your buzzing hub for all things tech! We buy, sell, and trade computers, laptops, peripherals, and gadgets, making it easy for tech enthusiasts to find the gear they need at the best prices. Whether upgrading, decluttering, or hunting for the latest tech, GadgetHive is where the tech community comes together.</p>-->
+
+<!--						<ul class="list-unstyled custom-social">-->
+<!--							<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>-->
+<!--							<li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>-->
+<!--							<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>-->
+<!--							<li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>-->
+<!--						</ul>-->
+<!--					</div>-->
+
+<!--					<div class="col-lg-8">-->
+<!--						<div class="row links-wrap">-->
+<!--							<div class="col-6 col-sm-6 col-md-3">-->
+<!--								<ul class="list-unstyled">-->
+<!--									<li><a href="#">About us</a></li>-->
+<!--									<li><a href="#">Services</a></li>-->
+<!--									<li><a href="#">Blog</a></li>-->
+<!--									<li><a href="#">Contact us</a></li>-->
+<!--								</ul>-->
+<!--							</div>-->
+
+<!--							<div class="col-6 col-sm-6 col-md-3">-->
+<!--								<ul class="list-unstyled">-->
+<!--									<li><a href="#">Support</a></li>-->
+<!--									<li><a href="#">Knowledge base</a></li>-->
+<!--									<li><a href="#">Live chat</a></li>-->
+<!--								</ul>-->
+<!--							</div>-->
+
+<!--							<div class="col-6 col-sm-6 col-md-3">-->
+<!--								<ul class="list-unstyled">-->
+<!--									<li><a href="#">Jobs</a></li>-->
+<!--									<li><a href="#">Our team</a></li>-->
+<!--									<li><a href="#">Leadership</a></li>-->
+<!--									<li><a href="#">Privacy Policy</a></li>-->
+<!--								</ul>-->
+<!--							</div>-->
+
+<!--							<div class="col-6 col-sm-6 col-md-3">-->
+<!--								<ul class="list-unstyled">-->
+<!--									<li><a href="#">Nordic Chair</a></li>-->
+<!--									<li><a href="#">Kruzo Aero</a></li>-->
+<!--									<li><a href="#">Ergonomic Chair</a></li>-->
+<!--								</ul>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--					<div class="border-top copyright">-->
+<!--					<div class="row pt-4">-->
+<!--						<div class="col-lg-6">-->
+<!--							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved to Christylazar Antony   </p>-->
+<!--						</div>-->
+
+<!--&lt;!&ndash;						<div class="col-lg-6 text-center text-lg-end">&ndash;&gt;-->
+<!--&lt;!&ndash;							<ul class="list-unstyled d-inline-flex ms-auto">&ndash;&gt;-->
+<!--&lt;!&ndash;								<li class="me-4"><a href="#">Terms &amp; Conditions</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;								<li><a href="#">Privacy Policy</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;							</ul>&ndash;&gt;-->
+<!--&lt;!&ndash;						</div>&ndash;&gt;-->
+
+<!--					</div>-->
+<!--				</div>-->
+<!--				</div>-->
+
+<!--				</div>-->
+
+
+<!--		</footer>-->
+<!--		&lt;!&ndash; End Footer Section &ndash;&gt;-->
+
+
+		<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+		<script src="{% static 'js/tiny-slider.js' %}"></script>
+		<script src="{% static 'js/custom.js' %}"></script>
+	</body>
+
+</html>

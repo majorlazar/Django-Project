@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="favicon.png">
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap4" />
+
+  <!-- Bootstrap CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="{% static 'css/tiny-slider.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <style>
+    body {
+      background: #f5f7fa;
+    }
+
+    .filter-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .card {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .card-header {
+      font-size: 15px;
+      padding: 15px 20px;
+    }
+
+    .table th {
+      background: #3B5D50 !important;
+      color: white;
+      font-size: 14px;
+    }
+
+    .table td {
+      background: white;
+    }
+
+    h2 {
+      color: #3B5D50;
+      font-weight: 700;
+    }
+
+    .badge {
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+  </style>
+
+  <title>GadgetHive</title>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark mb-4">
+  <div class="container">
+    <a class="navbar-brand">GadgetHive<span>.</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsFurni">
+
+      <!-- Left Side Nav Links -->
+      <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+        <li><a class="nav-link" href="userhome">Home</a></li>
+        <li><a class="nav-link" href="shop">Shop</a></li>
+        <li><a class="nav-link" href="cart">Cart</a></li>
+        <li><a class="nav-link" href="addproduct">Add Product</a></li>
+        <li><a class="nav-link" href="product_status">Product Status</a></li>
+        <li><a class="nav-link" href="checkout">Checkout</a></li>
+
+        <li class="nav-item active" ><a class="nav-link" href="order_details">Order Details</a></li>
+<!--        <li><a class="nav-link" href="contact">Contact Us</a></li>-->
+        <li><a class="nav-link" href="profile"><img src="{% static 'images/user.svg' %}" width="20"></a></li>
+      </ul>
+
+      <!-- Right Side Icons -->
+      <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+        <li class="nav-item">
+          <a class="nav-link" href="logout" title="Logout">
+            <i class="fa fa-sign-out" style="font-size:24px; color:white;"></i>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5 mb-5">
+
+  <!-- FILTER SECTION -->
+  <div class="filter-card mb-4">
+    <form method="get" class="row g-3">
+      <div class="col-md-3">
+        <input type="text" name="q" class="form-control" placeholder="🔍 Search by Order ID" value="{{ request.GET.q }}">
+      </div>
+
+      <div class="col-md-4">
+        <select name="status" class="form-select">
+          <option value="">All Status</option>
+          <option value="on the way" {% if request.GET.status == 'on the way' %}selected{% endif %}>On The Way</option>
+          <option value="delivered" {% if request.GET.status == 'delivered' %}selected{% endif %}>Delivered</option>
+          <option value="cancelled" {% if request.GET.status == 'cancelled' %}selected{% endif %}>Cancelled</option>
+          <option value="returned" {% if request.GET.status == 'returned' %}selected{% endif %}>Returned</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <button type="submit" class="btn w-100 text-white" style="background:#3B5D50;">Filter</button>
+      </div>
+    </form>
+  </div>
+  </form>
+
+  <h2 class="text-center mb-4">Your Orders</h2>
+
+  {% if orders %}
+    {% for order in orders %}
+    <div class="card mb-4 shadow-sm">
+     <div class="card-header d-flex justify-content-between align-items-center text-white" style="background-color: #3B5D50;">
+
+        <div>
+          <strong>Order ID:</strong> {{ order.id }} |
+          <strong>Date:</strong> {{ order.date|date:"d M Y H:i" }} |
+          <strong>Total:</strong> ₹{{ order.total_amount|floatformat:2 }}
+        </div>
+<!--        <div>-->
+<!--          {% if order.status == "delivered" %}-->
+<!--            <span class="badge bg-success">{{ order.status|title }}</span>-->
+<!--          {% elif order.status == "on the way" %}-->
+<!--            <span class="badge bg-primary">{{ order.status|title }}</span>-->
+<!--          {% elif order.status == "cancelled" %}-->
+<!--            <span class="badge bg-danger">{{ order.status|title }}</span>-->
+<!--          {% elif order.status == "returned" %}-->
+<!--            <span class="badge bg-warning text-dark">{{ order.status|title }}</span>-->
+<!--          {% else %}-->
+<!--            <span class="badge bg-secondary">{{ order.status|title }}</span>-->
+<!--          {% endif %}-->
+<!--        </div>-->
+      </div>
+      <div class="card-body">
+        <p><strong>Address:</strong> {{ order.address }}</p>
+        <h5 class="mb-3">Items</h5>
+        <div class="table-responsive">
+          <table class="table table-hover table-bordered align-middle">
+            <thead class="table-dark text-center">
+              <tr>
+                <th>Product</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              {% for item in order.items.all %}
+              <tr>
+                <td>{{ item.product.productName }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>₹{{ item.price|floatformat:2 }}</td>
+                <td>
+                  {% if order.status == "delivered" %}
+                    <span class="badge bg-success">{{ order.status|title }}</span>
+                  {% elif order.status == "on the way" %}
+                    <span class="badge bg-primary">{{ order.status|title }}</span>
+                  {% elif order.status == "cancelled" %}
+                    <span class="badge bg-danger">{{ order.status|title }}</span>
+                  {% elif order.status == "returned" %}
+                    <span class="badge bg-warning text-dark">{{ order.status|title }}</span>
+                  {% else %}
+                    <span class="badge bg-secondary">{{ order.status|title }}</span>
+                  {% endif %}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <div class="alert alert-info text-center">
+      You have not placed any orders yet.
+    </div>
+  {% endif %}
+</div>
+
+<!-- Bootstrap JS -->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-bordered mt-3">
+  <thead class="table-light">
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Price</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in products %}
+    <tr>
+      <td>
+        {% if p.image %}
+          <img src="{{ p.image.url }}" width="60" height="60" style="object-fit: cover;">
+        {% else %}
+          No Image
+        {% endif %}
+      </td>
+      <td>{{ p.productName }}</td>
+      <td>{{ p.category }}</td>
+      <td>₹ {{ p.price }}</td>
+      <td>{{ p.status }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="5" class="text-center">No products found.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+</body>
+</html>

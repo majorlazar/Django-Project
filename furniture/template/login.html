@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>GadgetHive - Sign Up</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="{% static 'css/tiny-slider.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+<!-- Small Home Button -->
+<div style="position: absolute; top: 20px; left: 30px;">
+  <a href="/" class="btn btn-outline-light btn-sm" style="border-radius: 30px; background-color: #28a745; color: white;">
+    <i class="fas fa-home"></i> Home
+  </a>
+</div>
+
+  <style>
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #1e5631 0%, #28a745 40%, #a8e063 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: #ffffff;
+}
+
+
+
+    .login-wrapper * { box-sizing: border-box; }
+
+
+ .login-container {
+  background: rgba(240, 255, 240, 0.85);  /* light green tint */
+  backdrop-filter: blur(10px);            /* soft glass blur effect */
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  width: 900px;
+  max-width: 100%;
+  min-height: 550px;
+  color: #1e5631;                         /* readable dark green text */
+}
+
+
+    form {
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 50px;
+      height: 100%;
+      text-align: center;
+    }
+
+  h1 {
+  font-weight: bold;
+  margin: 0;
+  color: #1b4332;  /* deep green for headings */
+}
+    span {
+      font-size: 13px;
+      color: #555;
+    }
+
+    input {
+      background-color: #eee;
+      border: none;
+      padding: 12px 15px;
+      margin: 8px 0;
+      width: 100%;
+      border-radius: 8px;
+    }
+
+button {
+  border-radius: 20px;
+  border: 1px solid #2e8b57;
+  background: linear-gradient(to right, #2e8b57, #3cb371);
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background: linear-gradient(to right, #3cb371, #2e8b57);
+  transform: scale(1.05);
+}
+
+
+    button:focus { outline: none; }
+
+    button.ghost {
+      background-color: transparent;
+      border-color: #fff;
+    }
+
+    .form-wrapper {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      transition: all 0.6s ease-in-out;
+    }
+
+    .sign-in-wrapper {
+      left: 0;
+      width: 50%;
+      z-index: 2;
+    }
+
+    .sign-up-wrapper {
+      left: 0;
+      width: 50%;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .login-wrapper.right-panel-active .sign-in-wrapper {
+      transform: translateX(100%);
+    }
+
+    .login-wrapper.right-panel-active .sign-up-wrapper {
+      transform: translateX(100%);
+      opacity: 1;
+      z-index: 5;
+      animation: show 0.6s;
+    }
+
+    @keyframes show {
+      0%, 49.99% { opacity: 0; z-index: 1; }
+      50%, 100% { opacity: 1; z-index: 5; }
+    }
+
+    .overlay-wrapper {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      transition: transform 0.6s ease-in-out;
+      z-index: 100;
+    }
+
+    .login-wrapper.right-panel-active .overlay-wrapper {
+      transform: translateX(-100%);
+    }
+
+    .overlay {
+      background: linear-gradient(to right, #28a745, #3b5d50);
+      color: #fff;
+      position: relative;
+      left: -100%;
+      height: 100%;
+      width: 200%;
+      transform: translateX(0);
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .login-wrapper.right-panel-active .overlay {
+      transform: translateX(50%);
+    }
+
+    .overlay-panel {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 40px;
+      text-align: center;
+      top: 0;
+      height: 100%;
+      width: 50%;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .overlay-left {
+      transform: translateX(-20%);
+    }
+
+    .login-wrapper.right-panel-active .overlay-left {
+      transform: translateX(0);
+    }
+
+    .overlay-right {
+      right: 0;
+      transform: translateX(0);
+    }
+
+    .login-wrapper.right-panel-active .overlay-right {
+      transform: translateX(20%);
+    }
+
+    .social-wrapper {
+      margin: 20px 0;
+    }
+
+    .social-wrapper a {
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 5px;
+      height: 40px;
+      width: 40px;
+      color: #3b5d50;
+    }
+
+    .social-wrapper a:hover {
+      background-color: #28a745;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+
+
+  <div class="login-wrapper" id="login-wrapper">
+    <div class="login-container">
+      <!-- Sign Up -->
+      {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+      <div class="form-wrapper sign-up-wrapper">
+        <form method="POST" action="register">
+          {% csrf_token %}
+          <h1>Create Account</h1>
+          <span>Use your email for registration</span>
+          <input type="text" placeholder="Full Name" name="name" required />
+          <input type="email" placeholder="Email" name="email" required />
+          <input type="text" placeholder="Username" name="username" required />
+          <input type="password" placeholder="Password" name="password" required />
+          <input type="tel" placeholder="Mobile Number" name="mobile" required />
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+
+      <!-- Sign In -->
+      <div class="form-wrapper sign-in-wrapper">
+        <form method="POST" action="">
+          {% csrf_token %}
+                {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+          <h1>Sign In</h1>
+          <div class="social-wrapper">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-google"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>or use your account</span>
+          <input type="name" placeholder="Username" name="username" required />
+          <input type="password" placeholder="Password" name="password" required />
+          <a href="forgot">Forgot your password?</a>
+          <button type="submit">Sign In</button>
+        </form>
+      </div>
+
+      <!-- Overlay -->
+      <div class="overlay-wrapper">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>To stay connected, please login with your account</p>
+            <button class="ghost" id="signIn" >Sign In</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1><b>Hello ,  Friend!</b></h1>
+            <p>Enter your personal details and start your journey with us</p>
+            <button class="ghost" id="signUp">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const loginWrapper = document.getElementById('login-wrapper');
+
+    signUpButton.addEventListener('click', () => {
+      loginWrapper.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+      loginWrapper.classList.remove("right-panel-active");
+    });
+  </script>
+</body>
+</html>

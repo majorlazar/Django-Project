@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+<title>Fashion Hair a Fashion Category Flat Bootstrap Responsive Website Template| Contact :: w3layouts</title>
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<!-- jQuery (Bootstrap's JavaScript plugins) -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- Custom Theme files -->
+<link href="{% static 'css/style1.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Fashion Hair Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Poiret+One|Lily+Script+One|Raleway:400,300,500,600,200,700' rel='stylesheet' type='text/css'>
+<!--webfont-->
+<!-- dropdown -->
+<script src="{% static 'js/jquery.easydropdown.js' %}"></script>
+<link href="{% static 'css/nav.css' %}" rel="stylesheet" type="text/css" media="all"/>
+<script src="{% static 'js/modernizr.custom.js' %}"></script>
+
+
+
+
+	<style>
+    body {
+        font-size: 16px; /* Base font size */
+        font-family: 'Raleway', sans-serif;
+    }
+
+    h2 {
+        font-size: 32px;
+        font-weight: 600;
+    }
+
+    h4 {
+        font-size: 24px;
+        font-weight: 500;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+
+    p, li, textarea, input {
+        font-size: 16px;
+    }
+
+    .card p {
+        margin-bottom: 8px;
+    }
+
+    .list-group-item {
+        font-size: 16px;
+    }
+
+    .btn {
+        font-size: 18px;
+    }
+
+    .filter-form {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        padding: 20px;
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+
+    .card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    .card-footer {
+        background-color: transparent;
+        border-top: none;
+    }
+</style>
+
+
+
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="alert alert-success text-center">
+            <h3>Thank you for your order!</h3>
+            <p>Your order ID is <strong>#{{ order.id }}</strong></p>
+            <p>Total: ₹{{ order.total_amount }}</p>
+            <a href="{% url 'userhome' %}" class="btn btn-primary mt-3">Continue Shopping</a>
+        </div>
+    </div>
+</body>
+</html>

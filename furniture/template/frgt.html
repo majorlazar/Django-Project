@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forgot Password</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #3B5D50;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            width: 320px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #3B5D50;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #3B5D50;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3B5D50;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2f4d42;
+        }
+    </style>
+</head>
+
+<body>
+<div style="position: absolute; top: 20px; left: 30px;">
+  <a href="login" class="btn btn-outline-light btn-sm" style="border-radius: 30px; background-color: #28a745; color: white;">
+    <i class="fas fa-login"></i> Login
+  </a>
+</div>
+
+    <div class="container">
+        <form action="{% url 'forgot' %}" method="post">
+            {% csrf_token %}
+
+            <h1>Forgot Password</h1>
+
+            <input type="email" name="email" placeholder="Enter your email" required>
+
+            <button type="submit">Send Email</button>
+        </form>
+    </div>
+</body>
+</html>

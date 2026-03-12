@@ -1,0 +1,196 @@
+
+<!doctype html>
+<html lang="en">
+{% load static %}
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="favicon.png">
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap4" />
+
+		<!-- Bootstrap CSS -->
+		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+		<link href="{% static 'css/tiny-slider.css' %}" rel="stylesheet">
+		<link href="{% static 'css/style.css' %}" rel="stylesheet">
+		<title>GadgetHive</title>
+	</head>
+	<body>
+
+		<!-- Start Header/Navigation -->
+		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+
+			<div class="container">
+				<a class="navbar-brand">GadgetHive<span>.</span></a>
+
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarsFurni">
+
+  <!-- Left Side Nav Links -->
+  <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+    <li><a class="nav-link" href="userhome">Home</a></li>
+    <li><a class="nav-link" href="shop">Shop</a></li>
+    <li><a class="nav-link" href="cart">Cart</a></li>
+
+      <li class="nav-item active">
+          <a class="nav-link" href="addproduct">Add Product</a>
+      </li>
+    <li><a class="nav-link" href="product_status">Product Status</a></li>
+    <li><a class="nav-link" href="checkout">Checkout</a></li>
+    <li><a class="nav-link" href="order_details">Order Details</a></li>
+<!--    <li><a class="nav-link" href="contact">Contact Us</a></li>-->
+    <li><a class="nav-link" href="profile"><img src="{% static 'images/user.svg' %}"></a></li>
+  </ul>
+
+  <!-- Right Side Icons -->
+  <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+    <li class="nav-item">
+      <a class="nav-link" href="logout" title="Logout">
+        <i class="fa fa-sign-out" style="font-size:24px; color:white;"></i>
+      </a>
+    </li>
+
+  </ul>
+
+</div>
+
+			</div>
+
+		</nav>
+<!-- Add Product Section -->
+<!--<div class="container mt-5">-->
+    <div class="container mt-5" style="background-color: #3b5d50; border-radius: 10px; padding: 20px;">
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">  <!-- Reduce width here -->
+      <div class="card p-4 shadow-sm">
+        <h4 class="text-center mb-4">Add Product</h4>
+
+        <form id="addProductForm" method="POST" action="addproduct" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          <!-- Category -->
+          <div class="mb-3">
+            <label for="category" class="form-label">Select Category</label>
+            <select class="form-select" id="category" name="category" required>
+              <option value="">-- Select Category --</option>
+              <option value="storage">Storage Devices</option>
+              <option value="cables">Cables</option>
+              <option value="motherboard">Motherboards</option>
+              <option value="processor">Processors</option>
+              <option value="ram">RAM</option>
+              <option value="gpu">Graphics Cards</option>
+              <option value="peripheral">Peripherals</option>
+              <option value="others">Others</option>
+            </select>
+          </div>
+
+          <!-- Common Fields -->
+          <div id="commonFields">
+            <div class="mb-3">
+              <label for="productName" class="form-label">Product Name</label>
+              <input type="text" class="form-control" id="productName" name="productName" placeholder="Enter product name" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="brand" class="form-label">Brand</label>
+              <input type="text" class="form-control" id="brand" name="brand" placeholder="Enter brand name">
+            </div>
+
+            <div class="mb-3">
+              <label for="price" class="form-label">Price (₹)</label>
+              <input type="number" class="form-control" id="price" name="price" placeholder="Enter price" required>
+            </div>
+          </div>
+
+          <!-- Dynamic Fields -->
+          <div id="dynamicFields"></div>
+
+          <div class="mb-3">
+            <label for="image" class="form-label">Upload Image</label>
+            <input type="file" class="form-control" id="image" name="image">
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary px-5">Add Product</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("category").addEventListener("change", function() {
+    const cat = this.value;
+    const dynamic = document.getElementById("dynamicFields");
+    dynamic.innerHTML = ""; // Clear previous fields
+
+    if (cat === "storage") {
+      dynamic.innerHTML = `
+        <div class="mb-3">
+          <label class="form-label">Storage Type</label>
+          <select class="form-select" name="storage_type">
+            <option value="HDD">HDD</option>
+            <option value="SSD">SSD</option>
+            <option value="NVMe">NVMe</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Capacity</label>
+          <input type="text" class="form-control" name="capacity" placeholder="e.g., 1TB, 512GB">
+        </div>`;
+    }
+    else if (cat === "cables") {
+      dynamic.innerHTML = `
+        <div class="mb-3">
+          <label class="form-label">Cable Type</label>
+          <input type="text" class="form-control" name="cable_type" placeholder="e.g., HDMI, USB, SATA">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Length</label>
+          <input type="text" class="form-control" name="length" placeholder="e.g., 1.5m">
+        </div>`;
+    }
+    else if (cat === "processor") {
+      dynamic.innerHTML = `
+        <div class="mb-3">
+          <label class="form-label">Cores/Threads</label>
+          <input type="text" class="form-control" name="cores" placeholder="e.g., 6 Cores / 12 Threads">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Clock Speed</label>
+          <input type="text" class="form-control" name="clock_speed" placeholder="e.g., 3.5 GHz">
+        </div>`;
+    }
+    else if (cat === "ram") {
+      dynamic.innerHTML = `
+        <div class="mb-3">
+          <label class="form-label">Memory Size</label>
+          <input type="text" class="form-control" name="memory_size" placeholder="e.g., 8GB, 16GB">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Speed</label>
+          <input type="text" class="form-control" name="speed" placeholder="e.g., 3200 MHz">
+        </div>`;
+    }
+    else if (cat === "gpu") {
+      dynamic.innerHTML = `
+        <div class="mb-3">
+          <label class="form-label">VRAM</label>
+          <input type="text" class="form-control" name="vram" placeholder="e.g., 8GB GDDR6">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Chipset</label>
+          <input type="text" class="form-control" name="chipset" placeholder="e.g., NVIDIA RTX 3060">
+        </div>`;
+    }
+  });
+</script>
+    </body>
+</html>
