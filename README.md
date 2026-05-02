@@ -77,7 +77,7 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 **Christylazar Antony**
 
-- 🌐 Portfolio: [christylazar.pythonanywhere.com](https://majorlazar.github.io/Portfolio/)
+- 🌐 Portfolio: [Portfolio](https://majorlazar.github.io/Portfolio/)
 - 💼 LinkedIn: [linkedin.com/in/christylazarantony](https://linkedin.com/in/christylazarantony/)
 - 🐙 GitHub: [github.com/majorlazar](https://github.com/majorlazar)
 
